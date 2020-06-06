@@ -18,12 +18,3 @@ db.init_app(app)
 def hello_world():
     return 'Hello, World!'
 
-
-@app.route('/companies')
-def get_companies():
-    companies = Company.objects[:10]
-    total = Company.objects.count()
-    return jsonify({
-        'companies': list(companies),
-        'total': total,
-    })
