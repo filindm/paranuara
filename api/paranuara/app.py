@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.config["MONGODB_DB"] = os.environ["MONGODB_DB"]
 app.config['MONGODB_HOST'] = os.environ["MONGODB_HOST"]
 db.init_app(app)
+from . import api
 
 
 @app.route('/health')
