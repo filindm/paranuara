@@ -24,3 +24,4 @@ class Company(db.Document, Serializable):
     index = db.IntField()
     name = db.StringField()
 
+

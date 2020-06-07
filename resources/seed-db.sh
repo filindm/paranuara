@@ -13,4 +13,9 @@ mongo paranuara <<EOF
     db.people.createIndex({
         company_id: 1
     },{})
+    db.people.createIndex({
+        index: 1
+    },{
+        unique: true,
+    })
 EOF
