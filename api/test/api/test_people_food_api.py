@@ -6,7 +6,9 @@ from ..base import TestBase
 
 
 class TestPeopleFoodApi(TestBase):
-
+    """
+    Test get_persons_fav_food endpoint.
+    """
     person_idx = 1
     base_url = '/people'
     favourite_food_url = f'{base_url}/{person_idx}/food'

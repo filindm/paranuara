@@ -5,8 +5,10 @@ from paranuara.models import Company, Person
 from ..base import TestBase
 
 
-class TestCompanyApi(TestBase):
-
+class TestCompanyEmployeesApi(TestBase):
+    """
+    Test get_company_employees endpoint.
+    """
     company_id = 1
     url = f'/companies/{company_id}/employees'
 

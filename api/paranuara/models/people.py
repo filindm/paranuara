@@ -40,6 +40,7 @@ class Person(db.Document, Serializable):
     _schema = {
         '': PersonSchema(only=('id', 'index', 'name', 'age', 'address', 'phone', 'company_id')),
         'fav_food': PersonSchema(only=('username', 'age', 'fruits', 'vegetables')),
+        'info': PersonSchema(only=("name", "age", "address", "phone"))
     }
 
     index = db.IntField()
@@ -48,6 +49,11 @@ class Person(db.Document, Serializable):
     address = db.StringField()
     phone = db.StringField()
     company_id = db.IntField()
-    favourite_food = db.ListField(db.StringField())
+    favourite_food = db.ListField(db.StringField(), db_field='favouriteFood')
+    friends = db.ListField(db.DictField())
+    eye_color = db.StringField(db_field='eyeColor')
+    has_died = db.BooleanField()
 
+    def get_friends_indexes(self):
+        return [x['index'] for x in self.friends]
 
